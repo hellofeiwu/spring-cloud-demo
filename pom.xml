@@ -20,6 +20,7 @@
         <module>feign/feign-client</module>
         <module>feign/feign-consumer-advanced</module>
         <module>config/config-server</module>
+        <module>config/config-client</module>
     </modules>
 
     <dependencyManagement>
