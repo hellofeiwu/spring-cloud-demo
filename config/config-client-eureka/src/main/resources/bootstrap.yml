@@ -1,17 +1,25 @@
 spring:
   application:
-    name: config-client
+    name: config-client-eureka
   cloud:
     config:
       name: config-consumer
-      uri: http://localhost:6000
+#      uri: http://localhost:6000
+      discovery:
+        enabled: true
+        service-id: config-server-eureka
       profile: prod
       label: main
 
 server:
-  port: 6100
+  port: 6200
 
 myWord: ${word}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:20000/eureka/
 
 management:
   security:
