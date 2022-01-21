@@ -14,8 +14,16 @@ public class RefreshController {
     @Value("${word}")
     private String word;
 
+    @Value("${food}")
+    private String food;
+
     @GetMapping("/word")
     public String getWord() {
         return word;
+    }
+
+    @GetMapping("/food")
+    public String getFood() {
+        return food;
     }
 }
