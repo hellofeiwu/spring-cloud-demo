@@ -12,4 +12,10 @@ public interface IService {
 
     @PostMapping("/test")
     public String test(@RequestParam(name = "timeout") int timeout);
+
+    @GetMapping("/sayHi")
+    String sayHi();
+
+    @GetMapping("/fail")
+    String fail();
 }

@@ -1,12 +1,11 @@
 package com.imooc.springcloud;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Slf4j
+
 public class Controller implements IService{
 
     @Value("${server.port}")
@@ -24,7 +23,17 @@ public class Controller implements IService{
                 e.printStackTrace();
             }
         }
-        log.info("retry " + port);
+        System.out.println("retry " + port);
         return "timeout is " + timeout;
+    }
+
+    public String sayHi() {
+        int i = 10/0;
+        return "hello world, port: " + port;
+    }
+
+    public String fail() {
+        System.out.println("failed in feign-client");
+        throw new RuntimeException("failed in feign-client");
     }
 }
