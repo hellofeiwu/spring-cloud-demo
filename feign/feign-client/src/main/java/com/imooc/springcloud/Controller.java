@@ -15,20 +15,18 @@ public class Controller implements IService{
         return "This is " + port;
     }
 
-    public String test(@RequestParam(name = "timeout") int timeout) {
-        while (--timeout >= 0) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+    public String delay(double timeout) {
+        try {
+            Thread.sleep((long)(timeout * 1000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        System.out.println("retry " + port);
-        return "timeout is " + timeout;
+
+        System.out.println("in feign-client: timeout is " + timeout + " seconds");
+        return "in feign-client: timeout is " + timeout + " seconds";
     }
 
     public String sayHi() {
-        int i = 10/0;
         return "hello world, port: " + port;
     }
 

@@ -11,8 +11,9 @@ public class Fallback implements MyService {
     }
 
     @Override
-    public String test(int timeout) {
-        return null;
+    public String delay(double timeout) {
+        System.out.println("in hystrix-fallback: handle timeout " + timeout + " seconds");
+        return "in hystrix-fallback: handle timeout " + timeout + " seconds";
     }
 
     @Override

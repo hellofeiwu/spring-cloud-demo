@@ -2,6 +2,7 @@ package com.imooc.springcloud;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,5 +18,10 @@ public class Controller {
     @GetMapping("/handleFail")
     public String handleFail() {
         return "from hystrix-fallback: " + myService.fail();
+    }
+
+    @GetMapping("/timeout")
+    public String handleTimeout(@RequestParam("timeout") double timeout) {
+        return "from hystrix-fallback: "+ myService.delay(timeout);
     }
 }

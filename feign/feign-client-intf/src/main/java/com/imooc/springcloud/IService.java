@@ -10,8 +10,8 @@ public interface IService {
     @GetMapping("/test")
     public String test();
 
-    @PostMapping("/test")
-    public String test(@RequestParam(name = "timeout") int timeout);
+    @GetMapping("/delay")
+    public String delay(@RequestParam("timeout") double timeout);
 
     @GetMapping("/sayHi")
     String sayHi();
