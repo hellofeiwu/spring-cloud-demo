@@ -1,6 +1,7 @@
 package com.imooc.springcloud.hystrix;
 
 import com.imooc.springcloud.MyService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -26,5 +27,11 @@ public class Fallback implements MyService {
     public String fail() {
         System.out.println("Fallback: handle fail");
         return "Fallback: handle fail";
+    }
+
+    @Override
+    public String slowService(String id){
+        System.out.println("Fallback response for thread id " + id + " (too many concurrent requests)");
+        return "Fallback response for thread id " + id + " (too many concurrent requests)";
     }
 }

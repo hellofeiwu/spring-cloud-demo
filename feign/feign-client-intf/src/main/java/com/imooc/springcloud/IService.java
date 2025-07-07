@@ -2,6 +2,7 @@ package com.imooc.springcloud;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,4 +19,7 @@ public interface IService {
 
     @GetMapping("/fail")
     String fail();
+
+    @GetMapping("/slow/{id}")
+    String slowService(@PathVariable("id") String id);
 }

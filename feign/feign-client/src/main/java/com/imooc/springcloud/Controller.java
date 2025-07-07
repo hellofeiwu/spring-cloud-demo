@@ -34,4 +34,15 @@ public class Controller implements IService{
         System.out.println("failed in feign-client");
         throw new RuntimeException("failed in feign-client");
     }
+
+    public String slowService(String id){
+        try {
+            Thread.sleep((long)(3000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("System print in feign-client: thread id " + id);
+        return "in feign-client: thread id " + id;
+    }
 }
