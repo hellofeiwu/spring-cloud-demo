@@ -7,6 +7,7 @@ spring:
         git:
           uri: https://github.com/hellofeiwu/config-repo.git
           force-pull: true
+          search-paths: '{application}'
           default-label: main
 #          这里不写上这个default-label的话，其默认的值是master，但是现在的github不一定是master
 
