@@ -30,6 +30,12 @@ public class SleuthTraceBMain {
     @GetMapping("traceB")
     public String traceB(){
         log.info("-----------in traceB()");
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        int i = 1/0;
         return "traceB";
 
     }
